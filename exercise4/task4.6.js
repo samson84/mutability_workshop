@@ -1,4 +1,4 @@
-// Example: arrays with reassignment
+// Example: What about array reassignment.
 
 const shoppingCart = ['litter', 'kibbles']
 

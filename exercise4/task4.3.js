@@ -1,4 +1,5 @@
-// Example: const with modified object
+// Example: What if the variable is not primitive but an object?
+//  Is it possible to modify the object?
 
 const butyok = {
     name: 'Bütyök',

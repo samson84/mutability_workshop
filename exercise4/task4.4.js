@@ -1,4 +1,4 @@
-// Example: const with new assignment
+// Example: Is it possible to reassign the object?
 
 const butyok = {
     name: 'Bütyök',
