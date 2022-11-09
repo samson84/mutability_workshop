@@ -1,5 +1,3 @@
-const { CallTracker } = require('assert');
-
 const assert = require('assert').strict
 
 // Modify the functions below to always return immutable data structures
@@ -9,21 +7,21 @@ function createCakeBase() {
 }
 
 function prepareLayers(cake) {
-    return {...cake, layers: []}
+    cake.layers = []
+    return cake
 }
 
 function addLayers(cake, layers) {
-    return {...cake, layers: [...layers]};
+    for(let i = 0; i < layers.length; i++) {
+        cake.layers.push(layers[i])
+    }
+    return cake;
 }
 
 function addCandles(cake, birthYear) {
     const now = new Date();
-    const age = now.getFullYear() - birthYear;
-    return {
-        ...cake,
-        layers: [...cake.layers],
-        candles: age 
-    };
+    cake.candles = now.getFullYear() - birthYear;
+    return cake;
 }
 
 // We prepare two cakes here, one for Cirmi and
