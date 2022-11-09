@@ -1,3 +1,5 @@
+const { CallTracker } = require('assert');
+
 const assert = require('assert').strict
 
 // Modify the functions below to always return immutable data structures
@@ -7,21 +9,21 @@ function createCakeBase() {
 }
 
 function prepareLayers(cake) {
-    cake.layers = []
-    return cake
+    return {...cake, layers: []}
 }
 
 function addLayers(cake, layers) {
-    for(let i = 0; i < layers.length; i++) {
-        cake.layers.push(layers[i])
-    }
-    return cake;
+    return {...cake, layers: [...layers]};
 }
 
 function addCandles(cake, birthYear) {
     const now = new Date();
-    cake.candles = now.getFullYear() - birthYear;
-    return cake;
+    const age = now.getFullYear() - birthYear;
+    return {
+        ...cake,
+        layers: [...cake.layers],
+        candles: age 
+    };
 }
 
 // We prepare two cakes here, one for Cirmi and
@@ -49,7 +51,7 @@ let fruitCake = addLayers(prepared, [
 
 let butyokCake = addCandles(fruitCake, 2021)
 
-let cirmiCake = addCandles(chocholateCake, 2007);
+let cirmiCake = addCandles(chocholateCake, 2017);
 
 // These assertions must pass
 
@@ -57,7 +59,9 @@ assert.equal(cake !== prepared, true, '❌ Ooops, the prepareLayer fucntion does
 assert.equal(prepared !== chocholateCake, true, '❌ Ooops, the addLayers function does not return a new object.')
 assert.equal(prepared !== fruitCake, true, '❌ Ooops, the addLayers function does not return a new object.')
 assert.equal(butyokCake !== fruitCake, true, '❌ Ooops, the addCandles function does not return a new object.')
+assert.equal(butyokCake.layers !== fruitCake.layers, true, '❌ So close, but the addCandles fn does not return a new layers array.')
 assert.equal(cirmiCake !== chocholateCake, true, '❌ Ooops, the addCandles function does not return a new object.')
+assert.equal(cirmiCake.layers !== chocholateCake.layers, true, '❌ So close, but the addCandles fn does not return a new layers array.')
 
 assert.deepStrictEqual(butyokCake, {
     candles: 1,
@@ -66,7 +70,7 @@ assert.deepStrictEqual(butyokCake, {
         'strawberries',
         'whipped cream'
     ]
-})
+}, '❌ Ooops, Bütyök\'s cake is not correct.')
 
 assert.deepStrictEqual(cirmiCake, {
     candles: 5,
@@ -74,8 +78,8 @@ assert.deepStrictEqual(cirmiCake, {
         'sponge cake',
         'chocolate cream',
         'sponge cake',
-        'chocholate dressing'
+        'chocolate dressing'
     ]
-})
+}, '❌ Ooops, Cirmis\'s cake is not correct.')
 
 console.log('✅🐱 Congratulation, it is passed.')
