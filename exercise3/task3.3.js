@@ -16,9 +16,6 @@ function catchPrey(aCat, prey) {
     return newCat
 }
 
-// Help, if you get stucked:
-// - 
-
 // The lines below test your solution, do not touch them!
 
 function test1() {

@@ -26,7 +26,7 @@ function test1() {
     }
 
     let current = celebrateBirthDay(input)
-    console.log('input === expectedResult ?', input === expectedResult)
+    console.log('input === current ?', input === current)
     assert.deepStrictEqual(current, expectedResult, '❌ Ooops, the expected result does not match.')
 }
 test1()

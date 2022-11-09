@@ -15,14 +15,12 @@ function addFeeding(aCat, feedingName, amount) {
     // TODO: correct the function body
     let aNewCat = {
         ...aCat
-    }
+    } 
     aNewCat.feeding[feedingName] = amount
 
     return aNewCat
 }
-
-// Help, if you get stucked:
-// - 
+ 
 
 // The lines below test your solution, do not touch them!
 
@@ -49,7 +47,7 @@ function test1() {
 
     assert.deepStrictEqual(current, expectedResult, '❌ Ooops, the expected result does not match.')
     assert.equal(current !== aCat, true, '❌ Ooops, it is not a new object.')    
-    assert.equal(current.kibbles !== aCat.kibbles, true, '❌ Ooops, the nested object is not new.')
+    assert.equal(current.feeding !== aCat.feeding, true, '❌ Ooops, the nested object is not new.')
 }
 test1()
 

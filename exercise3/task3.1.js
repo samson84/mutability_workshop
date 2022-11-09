@@ -30,7 +30,7 @@ const shoppingCart = [
 ]
 
 const shoppingCart2 = [...shoppingCart]
-shoppingCart2[1].quantity = 2
+shoppingCart2[1].quantity = 6
 
 console.log('shoppingCart[1]', shoppingCart[1])
 console.log('shoppingCart2[1]', shoppingCart2[1])

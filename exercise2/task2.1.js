@@ -30,9 +30,9 @@ function test1() {
         age: 2
     }
 
-    let current = safeCelebrateBirthDay(input, quantity)
+    let current = safeCelebrateBirthDay(input)
 
-    assert.deepStrictEqual(current, expectedResult, '❌ Ooops, the expected result does not match.')
+    assert.deepEqual(current, expectedResult, '❌ Ooops, the expected result does not match.')
     assert.equal(current !== input, true, '❌ Ooops, it is not a new object')    
 }
 test1()
@@ -47,7 +47,7 @@ function test2() {
         age: 5
     }
 
-    let current = safeCelebrateBirthDay(input, quantity)
+    let current = safeCelebrateBirthDay(input)
 
     assert.deepStrictEqual(current, expectedResult, '❌ Ooops, the expected result does not match.')
     assert.equal(current !== input, true, '❌ Ooops, it is not a new object')    
